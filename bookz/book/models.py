@@ -26,7 +26,7 @@ class Subject(models.Model):
         return self.name
 
 class Book(models.Model):
-    """a book, described by it's ISBN-13"""
+    """a book, identified by it's ISBN-13"""
     isbn = models.IntegerField(verbose_name=_("ISBN-13"), primary_key=True)
     title = models.CharField(max_length=200, verbose_name=_("Title"))
     long_title = models.CharField(max_length=200, verbose_name=_("Long title"))
@@ -36,7 +36,8 @@ class Book(models.Model):
     ddc = models.CharField(max_length=10, verbose_name=_("Dewey Decimal Classification"), blank=True)
     language = models.CharField(max_length=50, verbose_name=_("Language"))
     edition_info = models.CharField(max_length=200, verbose_name=_("Edition Information"), blank=True)
-    summary = models.TextField(blank=True)
+    summary = models.TextField(blank=True, verbose_name=_("Summary of the Book"))
+    cover = models.ImageField(upload_to="static/images/bookcovers/", verbose_name=_("Book cover image"), blank=True)
 
         
     def save(self, *args, **kwargs):
@@ -49,6 +50,8 @@ class Book(models.Model):
             self.edition_info=''
         if not self.summary:
             self.summary=''
+        if not self.cover:
+            self.cover = 'static/images/bookcovers/default.png'
         super(Book, self).save(*args, **kwargs)
 
     def __unicode__(self):

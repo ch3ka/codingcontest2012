@@ -1,0 +1,9 @@
+[
+    {
+        "model": "accounts.User",
+        "pk": 1,
+        "fields": {
+            "is_superuser": 1
+        }
+    }
+]
