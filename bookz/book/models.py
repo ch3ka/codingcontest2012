@@ -5,6 +5,7 @@ class Author(models.Model):
     """ a book has at least one author"""
     author_id = models.SlugField(verbose_name=_("Author ID"), primary_key=True)
     name = models.CharField(max_length=200, verbose_name=_("Author Name"))
+    created = models.DateTimeField(auto_now_add=True)
 
     def __unicode__(self):
         return self.name
@@ -13,6 +14,7 @@ class Publisher(models.Model):
     """every book has exactly one Publisher"""
     publisher_id = models.SlugField(verbose_name=_("Publisher ID"), primary_key=True)
     name = models.CharField(max_length=200, verbose_name=_("Publisher Name"))
+    created = models.DateTimeField(auto_now_add=True)
 
     def __unicode__(self):
         return self.name
@@ -21,6 +23,7 @@ class Subject(models.Model):
     """a book can cover several subjects"""
     subject_id = models.SlugField(verbose_name=_("Subject ID"), primary_key=True)
     name = models.CharField(max_length=200, verbose_name=_("Subject Name"))
+    created = models.DateTimeField(auto_now_add=True)
 
     def __unicode__(self):
         return self.name
@@ -38,6 +41,7 @@ class Book(models.Model):
     edition_info = models.CharField(max_length=200, verbose_name=_("Edition Information"), blank=True)
     summary = models.TextField(blank=True, verbose_name=_("Summary of the Book"))
     cover = models.ImageField(upload_to="static/images/bookcovers/", verbose_name=_("Book cover image"), blank=True)
+    created = models.DateTimeField(auto_now_add=True)
 
         
     def save(self, *args, **kwargs):

@@ -20,10 +20,12 @@ class Review(models.Model):
     book = models.ForeignKey(Book)
     user = models.ForeignKey(User)
     text = models.TextField()
+    created = models.DateTimeField(auto_now_add=True)
     rating = models.SmallIntegerField(choices=((1,'*'),(2,'**'),(3,'***'),(4,'****'),(5,'*****')))
 
 class Comment(models.Model):
     review = models.ForeignKey(Review)
     user = models.ForeignKey(User)
     text = models.TextField()
+    created = models.DateTimeField(auto_now_add=True)
     rating = models.SmallIntegerField(choices=((1,'*'),(2,'**'),(3,'***'),(4,'****'),(5,'*****')))
