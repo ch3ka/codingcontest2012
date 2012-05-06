@@ -9,7 +9,7 @@ API_URL = "http://isbndb.com/api/books.xml?access_key=%(APIKEY)s&index1=isbn&val
 
 def do_import(isbn13):
     xml = urllib.urlopen(API_URL % {'ISBN': isbn13}).read()
-    soup = BeautifulStoneSoup(xml)
+    soup = BeautifulStoneSoup(xml, convertEntities=BeautifulStoneSoup.HTML_ENTITIES)
     print soup.prettify()
     book = soup.isbndb.booklist.bookdata
     print book.prettify()
