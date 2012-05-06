@@ -5,7 +5,7 @@
 {% endblock %}
 {% block content %}
 <h3>{{book.longtitle}}</h3>
-<img style="float:right;" src="/{{book.cover}}" width="120" height="120"/>
+<img style="float:right;" src="/{{book.cover|default:'static/images/bookcovers/default.png'}}" width="120" height="120"/>
 <table>
 <tr><td>ISBN-13</td><td>{{book.isbn}}</td></tr>
 <tr><td>authors</td><td>{% for author in book.authors.all %}{{author.name}}{% if not forloop.last%}, {% endif %}{% endfor %}</td></tr>

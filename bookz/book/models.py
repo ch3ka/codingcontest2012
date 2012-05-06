@@ -71,9 +71,7 @@ class Book(models.Model):
         if not self.edition_info:
             self.edition_info=''
         if not self.summary:
-            self.summary=''
-        if not self.cover:
-            self.cover = 'static/images/bookcovers/default.png'
+            self.summary='' 
         super(Book, self).save(*args, **kwargs)
 
     def __unicode__(self):
