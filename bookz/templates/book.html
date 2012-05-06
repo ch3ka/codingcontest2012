@@ -4,5 +4,24 @@
     {% trans "Book details"%}
 {% endblock %}
 {% block content %}
-    <p>Title: {{ book.title }}</p>
+<h3>{{book.longtitle}}</h3>
+<img style="float:right;" src="/{{book.cover}}" width="120" height="120"/>
+<table>
+<tr><td>ISBN-13</td><td>{{book.isbn}}</td></tr>
+<tr><td>authors</td><td>{% for author in book.authors.all %}{{author.name}}{% endfor %}</td></tr>
+<tr><td>subjects</td><td>{% for subject in book.subjects.all %} subject.name {% endfor %}</td></tr>
+<tr><td>publisher</td><td>{{book.publisher.name}}</td></tr>
+<tr><td>dewy decimal classification</td><td>{{book.ddc}}</td></tr>
+<tr><td>language</td><td>{{book.language}}</td></tr>
+<tr><td>edition_info</td><td>{{book.edition_info}}</td></tr>
+<tr><td>summary</td><td>{{book.summary}}</td></tr>
+</table>
+{% if user.is_authenticated %}
+<center>
+    <a href="/book/edit/{{book.isbn}}">edit</a> &bullet;
+    <a href="/book/own/{{book.isbn}}">I own this book</a> &bullet;
+    <a href="/book/read/{{book.isbn}}">I read this book</a> &bullet;
+    <a href="/book/review/{{book.isbn}}">write a review</a>
+</center>
+{% endif %}
 {% endblock %}

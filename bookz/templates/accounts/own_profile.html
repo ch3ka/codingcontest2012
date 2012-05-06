@@ -5,8 +5,14 @@
 {% endblock %}
 
 {% block content %}
-
+<img style="float:right" src="/{{user.avatar}}" height="200"/>
 <h3> {% trans "Hello," %} {{user}}, {% trans "nice to see you!" %} </h3>
-
+<p><a href="/accounts/profiles/{{user}}">view your profile as others see it</a></p>
+<p>{% trans "Want to update your profile?" %}</p>
+<form action="" method="post">
+{% csrf_token %}
+{{ form.as_ul }}
+<input type="submit" />
+</form>
 {% endblock %}
 

@@ -1,5 +1,5 @@
 from django import forms
-from accounts.models import User
+from accounts.models import User, Review, Comment
 from django.contrib.auth.forms import UserCreationForm
 from django.forms import ModelForm
  
@@ -23,3 +23,11 @@ class EditUserForm(ModelForm):
     class Meta:
         model = User
         fields = ("website", "bio", "avatar")
+
+class ReviewForm(ModelForm):
+    class Meta:
+        model = Review
+
+class CommentForm(ModelForm):
+    class Meta:
+        model = Comment

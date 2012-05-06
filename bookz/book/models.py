@@ -1,5 +1,6 @@
 from django.db import models
 from django.utils.translation import ugettext_lazy as _
+from django.forms import ModelForm
 
 class Author(models.Model):
     """ a book has at least one author"""
@@ -10,6 +11,11 @@ class Author(models.Model):
     def __unicode__(self):
         return self.name
 
+class AuthorForm(ModelForm):
+    class Meta:
+        model = Author
+        fields = ("name",)
+
 class Publisher(models.Model):
     """every book has exactly one Publisher"""
     publisher_id = models.SlugField(verbose_name=_("Publisher ID"), primary_key=True)
@@ -19,6 +25,11 @@ class Publisher(models.Model):
     def __unicode__(self):
         return self.name
 
+class PublisherForm(ModelForm):
+    class Meta:
+        model = Publisher
+        fields = ("name",)
+
 class Subject(models.Model):
     """a book can cover several subjects"""
     subject_id = models.SlugField(verbose_name=_("Subject ID"), primary_key=True)
@@ -27,6 +38,11 @@ class Subject(models.Model):
 
     def __unicode__(self):
         return self.name
+
+class SubjectForm(ModelForm):
+    class Meta:
+        model = Subject
+        fields = ("name",)
 
 class Book(models.Model):
     """a book, identified by it's ISBN-13"""
@@ -60,3 +76,7 @@ class Book(models.Model):
 
     def __unicode__(self):
         return "%s [%s]" % (self.title, self.isbn)
+
+class BookForm(ModelForm):
+    class Meta:
+        model = Book

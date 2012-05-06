@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% block title %}
+{% trans "Profile of" %} {{user}}
+{% endblock %}
+
+{% block content %}
+<img style="float:right" src="/{{user.avatar}}" height="200" />
+<p> {{user}} owns {{user.owns.count}} and read {{user.read.count}} books.</p>
+<p> {{user}} wrote {{reviews.count}} reviews and {{comments.count}} comments.</p>
+<p>Website: <a href="{{user.website}}" /> {{user.website}} </a></p>
+<p>Bio: {{user.bio}}</p>
+{% endblock %}
+

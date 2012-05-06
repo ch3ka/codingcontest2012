@@ -17,7 +17,8 @@ def import_by_isbn(isbn):
 
 def mark_as_owned(isbn, user):
     user.owns.add(Book.objects.get(isbn=isbn))
+    user.save()
 
 def mark_as_read(isbn, user):
     user.read.add(Book.objects.get(isbn=isbn))
-
+    user.save()

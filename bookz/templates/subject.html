@@ -4,6 +4,13 @@
     {% trans "Subject"%}
 {% endblock %}
 {% block content %}
-    <p>ID: {{ subject.subject_id }}</p>
-    <p>Name: {{ subject.name }}</p>
+    <p>Name: {{ subject.name }}, <a href="/books/subject/{{subject.subject_id}}">{{books.count}} {% blocktrans with books.count|pluralize as s%}Book{{s}} in Record{% endblocktrans %}</a></p>
+    {% if user.is_authenticated %}
+    <h3> {% trans "You are logged in, you may edit:" %} </h3>
+    <form action="" method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" />
+    </form>
+    {% endif %}
 {% endblock %}
