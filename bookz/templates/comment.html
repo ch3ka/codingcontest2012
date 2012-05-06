@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% block title %}
+    {% trans "Write a comment" %}
+{% endblock %}
+{% block content %}
+    <div>
+    {{ review.user }} wrote:
+    <blockquote>
+        {{ review.text }}
+    </blockquote>
+    </div>
+    <form action="" method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" />
+    </form>
+{% endblock %}

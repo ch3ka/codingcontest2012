@@ -1,4 +1,5 @@
 from django.db import models
+from django.utils.translation import ugettext_lazy as _
 from django.contrib.auth.models import User, UserManager
 from book.models import Book
 
@@ -19,13 +20,17 @@ class User(User):
 class Review(models.Model):
     book = models.ForeignKey(Book)
     user = models.ForeignKey(User)
-    text = models.TextField()
+    text = models.TextField(verbose_name=_("Your review text"))
     created = models.DateTimeField(auto_now_add=True)
-    rating = models.SmallIntegerField(choices=((1,'*'),(2,'**'),(3,'***'),(4,'****'),(5,'*****')))
+    rating = models.SmallIntegerField(choices=((1,'*'),(2,'**'),(3,'***'),(4,'****'),(5,'*****')), verbose_name=_("Your rating of the book"))
+    def rating_as_range(self):
+        return range(self.rating)
 
 class Comment(models.Model):
     review = models.ForeignKey(Review)
     user = models.ForeignKey(User)
-    text = models.TextField()
+    text = models.TextField(verbose_name=_("Your comment"))
     created = models.DateTimeField(auto_now_add=True)
-    rating = models.SmallIntegerField(choices=((1,'*'),(2,'**'),(3,'***'),(4,'****'),(5,'*****')))
+    rating = models.SmallIntegerField(choices=((1,'*'),(2,'**'),(3,'***'),(4,'****'),(5,'*****')), verbose_name=_("Your rating of the review"))
+    def rating_as_range(self):
+        return range(self.rating)

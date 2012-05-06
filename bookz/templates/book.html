@@ -24,4 +24,29 @@
     <a href="/book/review/{{book.isbn}}">write a review</a>
 </center>
 {% endif %}
+{{ reviews.count }} Reviews:<br />
+<hr />
+{% for review in reviews %}
+<div class="review">
+        <div style="float:right;">
+           <a href="/comment/{{review.pk}}">{% trans "comment" %}</a>
+        </div>
+        {% for _ in review.rating_as_range %}<img src="/static/images/star.png"/>{% endfor %} {% trans "by" %}  {{review.user}}<br />
+    {{review.text}}
+</div>
+    {% for comment in review.comments %}
+        <div class="comment">
+            {% for _ in comment.rating_as_range %}<img src="/static/images/star.png"/>{% endfor %} {% trans "by" %}  {{comment.user}}<br />
+            {{comment.text}}
+        </div><br/>
+    {% empty %}
+        <div class="comment">
+        {% trans "No comments yet" %}
+        </div><br/>
+    {% endfor %}
+        <br />
+{% empty %}
+{% trans "No reviews yet"
+<hr />
+{% endfor %}
 {% endblock %}

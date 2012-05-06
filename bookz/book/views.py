@@ -1,6 +1,7 @@
 from django.shortcuts import render_to_response
 from django.template import RequestContext
 from book.models import Book, BookForm, Author, AuthorForm, Subject, SubjectForm, Publisher, PublisherForm
+from accounts.models import Review, Comment
 from accounts.forms import ReviewForm, CommentForm
 from api import internal as internalapi
 from django.contrib.auth.decorators import login_required
@@ -36,8 +37,12 @@ def books_by(request, by, key):
     )
 
 def book(request, isbn):
+    book = Book.objects.get(isbn=isbn)
+    reviews = Review.objects.filter(book=book).order_by("-created")
+    for review in reviews:
+        review.comments = Comment.objects.filter(review=review)
     return render_to_response('book.html',
-        {'book': Book.objects.get(isbn=isbn)},
+        {'book': book,'reviews': reviews},
         context_instance=RequestContext(request)
     )
 
@@ -66,11 +71,31 @@ def readbook(request, isbn):
    return HttpResponseRedirect('/accounts/profiles/'+request.user.username)
 
 @login_required
-def reviewbook(request, isbn):
+def comment(request, reviewid):
     if request.method == "POST":
-        form = ReviewForm(request.POST)
+        comment = Comment(user=request.user, review=Review.objects.get(pk=reviewid))
+        form = CommentForm(request.POST, instance=comment)
         if form.is_valid():
             form.save()
+            isbn = Review.objects.get(pk=reviewid).book.isbn
+            return HttpResponseRedirect('/book/'+str(isbn))
+    else:
+        form = CommentForm()
+    return render_to_response('comment.html',
+        {'form': form,
+         'review': Review.objects.get(pk=reviewid),
+        },
+        context_instance=RequestContext(request)
+    )
+
+@login_required
+def reviewbook(request, isbn):
+    if request.method == "POST":
+        review = Review(user=request.user, book=Book.objects.get(isbn=isbn))
+        form = ReviewForm(request.POST, instance=review)
+        if form.is_valid():
+            form.save()
+            return HttpResponseRedirect('/book/'+isbn)
     else:
         form = ReviewForm()
     return render_to_response('review.html',

@@ -27,7 +27,9 @@ class EditUserForm(ModelForm):
 class ReviewForm(ModelForm):
     class Meta:
         model = Review
+        exclude = ("book", "user")
 
 class CommentForm(ModelForm):
     class Meta:
         model = Comment
+        exclude = ("review", "user")
