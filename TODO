@@ -1,0 +1,8 @@
+TODO:
+    - a search-as-you-type searchengine (xapian+django-haystack+jQuery-Autocomplete?)
+    - provide a filter mechanism and/or pager for the books
+    - extend both internal and external API (could also help with the former and the latter)
+    - AJAXify the forms
+    - Test cases! We are far away from decent test coverage
+    - more importers
+    - social features (how much kilograms of books do I have? compete with others! tweet it!)

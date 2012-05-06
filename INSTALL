@@ -1,0 +1,36 @@
+Bookz depends on:
+    - django 1.3
+    - BeautifulSoup
+
+install django 1.3 with your preferred package management system, or manually:
+    wget http://www.djangoproject.com/download/1.3.1/tarball/
+    tar xzvf Django-1.3.tar.gz
+    cd Django-1.3
+    sudo python setup.py install
+
+get and install BeautifulSoup. It's in PIP, or here: 
+    http://www.crummy.com/software/BeautifulSoup/
+
+now go to the "books" directory, and copy settings-example.py to settings.py
+    now edit the database settings in settings.py if you have to,
+    edit the ISBNDB.com-APIKey, maybe edit some other things.
+    remember that if you have DEBUG=False, you have to configure your webserver to deliver static content.
+
+Once you got the basic settings, run "python manage.py syncdb" to build the db scheme.
+    the scipt will als you to create a superuser.
+    do so.
+
+Now you can just run "python manage.py runserver" to run a developement server on localhost:8000.
+
+If you plan to go online in the wild, you would of course use a "real" webserver via mod_wsgi.
+
+USAGE:
+    use the superuser you created during the install to log into localhost:8000/admin - explore
+    some features are only accessible (and visible) when you are logged in.
+    logged in users can:
+        - add books (with autors, subjects, and publishers. those will automatically be added on first encounter.)
+        - edit books, autors, subjects, publishers, and their own profile
+        - write reviews on books
+        - write comments on reviews
+    superusers can:
+        - do everything, using the admin.
