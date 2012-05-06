@@ -18,7 +18,7 @@
         </div>
     <div class="main">
       <div id="post" class="content">
-      <h2> <a href="/books">books</a> &bullet; <a href="/authors">authors</a> &bullet; <a href="/publishers">publishers</a> &bullet; <a href="/subjects">subjects</a><span style="float:right">
+      <h2> <a href="/books">{% trans "books" %}</a> &bullet; <a href="/authors">{% trans "authors" %}</a> &bullet; <a href="/publishers">{% trans "publishers" %}</a> &bullet; <a href="/subjects">{% trans "subjects" %}</a><span style="float:right">
         {% if user.is_authenticated %}
             <a href="/accounts/profile">{% trans "Logged in as" %} {{ user }}</a> &bullet;
             <a href="/logout">{% trans "Logout" %}</a>

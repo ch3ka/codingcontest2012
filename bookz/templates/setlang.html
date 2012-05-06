@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% block title %}
+    {% trans "Change Language"%}
+{% endblock %}
+{% block content %}
+        <p>{% trans "This will change your language to" %} {{lang}} {% trans "are you sure?" %}</p>
+        <form action="/i18n/setlang/" method="post">
+        {% csrf_token %}
+        <input type="hidden" name="language" value="{{lang}}" />
+        <input type="hidden" name="next" value="/" />
+        <input type="submit" value="{% trans "yes" %}" />
+        </form>
+{% endblock %}

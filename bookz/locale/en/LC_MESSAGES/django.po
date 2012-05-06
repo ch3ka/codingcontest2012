@@ -1,0 +1,331 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-05-06 23:15+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: accounts/models.py:23
+msgid "Your review text"
+msgstr ""
+
+#: accounts/models.py:25
+msgid "Your rating of the book"
+msgstr ""
+
+#: accounts/models.py:32
+msgid "Your comment"
+msgstr ""
+
+#: accounts/models.py:34
+msgid "Your rating of the review"
+msgstr ""
+
+#: book/models.py:9
+msgid "Author ID"
+msgstr ""
+
+#: book/models.py:10
+msgid "Author Name"
+msgstr ""
+
+#: book/models.py:23
+msgid "Publisher ID"
+msgstr ""
+
+#: book/models.py:24
+msgid "Publisher Name"
+msgstr ""
+
+#: book/models.py:37
+msgid "Subject ID"
+msgstr ""
+
+#: book/models.py:38
+msgid "Subject Name"
+msgstr ""
+
+#: book/models.py:51
+msgid "ISBN-13"
+msgstr ""
+
+#: book/models.py:52
+msgid "Title"
+msgstr ""
+
+#: book/models.py:53
+msgid "Long title"
+msgstr ""
+
+#: book/models.py:54 templates/authors.html:4
+msgid "Authors"
+msgstr ""
+
+#: book/models.py:55 templates/subjects.html:4
+msgid "Subjects"
+msgstr ""
+
+#: book/models.py:56 templates/publisher.html:4
+msgid "Publisher"
+msgstr ""
+
+#: book/models.py:57
+msgid "Dewey Decimal Classification"
+msgstr ""
+
+#: book/models.py:58
+msgid "Language"
+msgstr ""
+
+#: book/models.py:59
+msgid "Edition Information"
+msgstr ""
+
+#: book/models.py:60
+msgid "Summary of the Book"
+msgstr ""
+
+#: book/models.py:61
+msgid "Book cover image"
+msgstr ""
+
+#: book/models.py:87
+msgid "You can specify subjects which are not in list, one per line"
+msgstr ""
+
+#: book/models.py:88
+msgid "You can specify authors which are not in list, one per line"
+msgstr ""
+
+#: book/models.py:89
+msgid "You can specify a publicher which is not in list"
+msgstr ""
+
+#: templates/about.html:4
+msgid "About"
+msgstr ""
+
+#: templates/about.html:7
+msgid ""
+"\n"
+"        <p>This is a result of <a href=\"http://netresearch.de/>"
+"\">Netresearch's</a> <a href=\"http://www.coding-contest.de/\">Coding "
+"Contest</a> 2012.</p>\n"
+"        <p>I built this as a bookkeeping software for books (pun intended) "
+"with some social flavour, plus a pretty extensible API.</p>\n"
+"        <p>It can import books by their ISBN, or manually, and you can write "
+"reviews for them, rate them and those, mark books as owned and read, etc</"
+"p>\n"
+"    "
+msgstr ""
+
+#: templates/addbook.html:4
+msgid "Add a book"
+msgstr ""
+
+#: templates/addbook.html:12
+msgid ""
+"if that fails (or you do not have any api key for any importer), do it "
+"manually:"
+msgstr ""
+
+#: templates/author.html:4
+msgid "Author"
+msgstr ""
+
+#: templates/author.html:7 templates/publisher.html:7 templates/subject.html:7
+#, python-format
+msgid "Book%(s)s in Record"
+msgstr ""
+
+#: templates/author.html:9 templates/publisher.html:9 templates/subject.html:9
+msgid "You are logged in, you may edit:"
+msgstr ""
+
+#: templates/authors.html:11
+msgid "No Authors in record. Maybe you want to add one?"
+msgstr ""
+
+#: templates/base.html:21
+msgid "books"
+msgstr ""
+
+#: templates/base.html:21
+msgid "authors"
+msgstr ""
+
+#: templates/base.html:21
+msgid "publishers"
+msgstr ""
+
+#: templates/base.html:21
+msgid "subjects"
+msgstr ""
+
+#: templates/base.html:23
+msgid "Logged in as"
+msgstr ""
+
+#: templates/base.html:24
+msgid "Logout"
+msgstr ""
+
+#: templates/base.html:26 templates/registration/login.html:4
+msgid "Login"
+msgstr ""
+
+#: templates/base.html:39
+msgid "about"
+msgstr ""
+
+#: templates/base.html:40
+msgid "source code"
+msgstr ""
+
+#: templates/base.html:43
+msgid "available in:"
+msgstr ""
+
+#: templates/base.html:44
+msgid "german"
+msgstr ""
+
+#: templates/base.html:45
+msgid "english"
+msgstr ""
+
+#: templates/book.html:4 templates/editbook.html:4
+msgid "Book details"
+msgstr ""
+
+#: templates/book.html:32
+msgid "comment"
+msgstr ""
+
+#: templates/book.html:34 templates/book.html.py:39 templates/books.html:4
+msgid "by"
+msgstr ""
+
+#: templates/book.html:44
+msgid "No comments yet"
+msgstr ""
+
+#: templates/book.html:49
+msgid "No reviews yet"
+msgstr ""
+
+#: templates/books.html:4
+msgid "All Books"
+msgstr ""
+
+#: templates/books.html:11
+msgid "No Books in record. Maybe you want to add one?"
+msgstr ""
+
+#: templates/comment.html:4
+msgid "Write a comment"
+msgstr ""
+
+#: templates/publishers.html:4
+msgid "Publishers"
+msgstr ""
+
+#: templates/publishers.html:11
+msgid "No Publishers in record. Maybe you want to add one?"
+msgstr ""
+
+#: templates/review.html:4
+msgid "Write a review"
+msgstr ""
+
+#: templates/setlang.html:4
+msgid "Change Language"
+msgstr ""
+
+#: templates/setlang.html:7
+msgid "This will change your language to"
+msgstr ""
+
+#: templates/setlang.html:7
+msgid "are you sure?"
+msgstr ""
+
+#: templates/setlang.html:12
+msgid "yes"
+msgstr ""
+
+#: templates/subject.html:4
+msgid "Subject"
+msgstr ""
+
+#: templates/subjects.html:11
+msgid "No Subjects in record. Maybe you want to add one?"
+msgstr ""
+
+#: templates/accounts/own_profile.html:4
+msgid "Your profile, master"
+msgstr ""
+
+#: templates/accounts/own_profile.html:9
+msgid "Hello,"
+msgstr ""
+
+#: templates/accounts/own_profile.html:9
+msgid "nice to see you!"
+msgstr ""
+
+#: templates/accounts/own_profile.html:11
+msgid "Want to update your profile?"
+msgstr ""
+
+#: templates/accounts/profile.html:4
+msgid "Profile of"
+msgstr ""
+
+#: templates/registration/loggedin.html:4
+msgid "Logged in"
+msgstr ""
+
+#: templates/registration/loggedin.html:9
+msgid "Thank you, you are now logged in"
+msgstr ""
+
+#: templates/registration/loggedout.html:4
+msgid "Logged out"
+msgstr ""
+
+#: templates/registration/loggedout.html:9
+msgid "Thank you, you are now logged out"
+msgstr ""
+
+#: templates/registration/loggedout.html:10
+msgid "Have a nice day, see you soon!"
+msgstr ""
+
+#: templates/registration/login.html:24
+msgid "do not have an account?"
+msgstr ""
+
+#: templates/registration/login.html:24
+msgid "Register!"
+msgstr ""
+
+#: templates/registration/register.html:3
+msgid "Create an account"
+msgstr ""
+
+#: templates/registration/register.html:9
+msgid "Create the account"
+msgstr ""

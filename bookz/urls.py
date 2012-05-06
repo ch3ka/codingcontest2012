@@ -41,6 +41,7 @@ urlpatterns = patterns('',
     url(r'^register/$', 'accounts.views.register'),
     url(r'^admin/', include(admin.site.urls)),
     url(r'^api/' , include('api.urls')),
+    url(r'^setlang/(?P<lang>.*)/$', 'book.views.setlang'),
     url(r'^i18n/', include('django.conf.urls.i18n')),
 )
 

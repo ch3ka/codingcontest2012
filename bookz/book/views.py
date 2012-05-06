@@ -195,3 +195,8 @@ def subject(request, subject_id):
         },
         context_instance=RequestContext(request)
     ) 
+
+def setlang(request, lang):
+    return render_to_response('setlang.html',{'lang': lang},
+    context_instance=RequestContext(request)
+    )

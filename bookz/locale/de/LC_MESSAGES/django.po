@@ -1,0 +1,330 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-05-06 22:59+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+
+#: accounts/models.py:23
+msgid "Your review text"
+msgstr "Deine Rezension"
+
+#: accounts/models.py:25
+msgid "Your rating of the book"
+msgstr "Deine Bewertung des Buches"
+
+#: accounts/models.py:32
+msgid "Your comment"
+msgstr "Dein Kommentar"
+
+#: accounts/models.py:34
+msgid "Your rating of the review"
+msgstr "Deine Bewertung der Rezension"
+
+#: book/models.py:9
+msgid "Author ID"
+msgstr "Autor ID"
+
+#: book/models.py:10
+msgid "Author Name"
+msgstr "Autorenname"
+
+#: book/models.py:23
+msgid "Publisher ID"
+msgstr "Verleger ID"
+
+#: book/models.py:24
+msgid "Publisher Name"
+msgstr "Verlagsname"
+
+#: book/models.py:37
+msgid "Subject ID"
+msgstr "Themen-ID"
+
+#: book/models.py:38
+msgid "Subject Name"
+msgstr "Themenname"
+
+#: book/models.py:51
+msgid "ISBN-13"
+msgstr "ISBN-13"
+
+#: book/models.py:52
+msgid "Title"
+msgstr "Titel"
+
+#: book/models.py:53
+msgid "Long title"
+msgstr "Gesamter Titel"
+
+#: book/models.py:54 templates/authors.html:4
+msgid "Authors"
+msgstr "Autoren"
+
+#: book/models.py:55 templates/subjects.html:4
+msgid "Subjects"
+msgstr "Themen"
+
+#: book/models.py:56 templates/publisher.html:4
+msgid "Publisher"
+msgstr "Verlag"
+
+#: book/models.py:57
+msgid "Dewey Decimal Classification"
+msgstr "Dewey-Dezimalklassifikation"
+
+#: book/models.py:58
+msgid "Language"
+msgstr "Sprache"
+
+#: book/models.py:59
+msgid "Edition Information"
+msgstr "Augabenspezifische Anmerkungen"
+
+#: book/models.py:60
+msgid "Summary of the Book"
+msgstr "Zusammenfassung des Buches"
+
+#: book/models.py:61
+msgid "Book cover image"
+msgstr "Buchcover-Bild"
+
+#: book/models.py:87
+msgid "You can specify subjects which are not in list, one per line"
+msgstr ""
+"Hier kannst du Themen spezifizieren, die nicht in der Liste sind. Eines pro "
+"Zeile."
+
+#: book/models.py:88
+msgid "You can specify authors which are not in list, one per line"
+msgstr ""
+"Hier kannst du Autoren spezifizieren, die nicht in der Liste sind. Einer pro "
+"Zeile."
+
+#: book/models.py:89
+msgid "You can specify a publicher which is not in list"
+msgstr "Hier kannst du einen Verlag spezifizieren, der nicht in der Liste ist."
+
+#: templates/about.html:4
+msgid "About"
+msgstr "Über"
+
+#: templates/about.html:7
+msgid ""
+"\n"
+"        <p>This is a result of <a href=\"http://netresearch.de/>"
+"\">Netresearch's</a> <a href=\"http://www.coding-contest.de/\">Coding "
+"Contest</a> 2012.</p>\n"
+"        <p>I built this as a bookkeeping software for books (pun intended) "
+"with some social flavour, plus a pretty extensible API.</p>\n"
+"        <p>It can import books by their ISBN, or manually, and you can write "
+"reviews for them, rate them and those, mark books as owned and read, etc</"
+"p>\n"
+"    "
+msgstr ""
+
+#: templates/addbook.html:4
+msgid "Add a book"
+msgstr "Buch hinzufügen"
+
+#: templates/addbook.html:12
+msgid ""
+"if that fails (or you do not have any api key for any importer), do it "
+"manually:"
+msgstr ""
+"wenn das fehlschlägt (oder du keinen API-Key fuer einen der Importer hast, "
+"mache es manuell:"
+
+#: templates/author.html:4
+msgid "Author"
+msgstr "Autor"
+
+#: templates/author.html:7 templates/publisher.html:7 templates/subject.html:7
+#, python-format
+msgid "Book%(s)s in Record"
+msgstr "Buch%(s)s im Verzeichnis"
+
+#: templates/author.html:9 templates/publisher.html:9 templates/subject.html:9
+msgid "You are logged in, you may edit:"
+msgstr "Du bist eingeloggt, du darfst bearbeiten:"
+
+#: templates/authors.html:11
+msgid "No Authors in record. Maybe you want to add one?"
+msgstr "Keine Autoren im Verzeichnis."
+
+#: templates/base.html:21
+msgid "books"
+msgstr "Bücher"
+
+#: templates/base.html:21
+msgid "authors"
+msgstr "Autoren"
+
+#: templates/base.html:21
+msgid "publishers"
+msgstr "Verleger"
+
+#: templates/base.html:21
+msgid "subjects"
+msgstr "Themen"
+
+#: templates/base.html:23
+msgid "Logged in as"
+msgstr "Angemeldet als"
+
+#: templates/base.html:24
+msgid "Logout"
+msgstr "Abmelden"
+
+#: templates/base.html:26 templates/registration/login.html:4
+msgid "Login"
+msgstr "Anmelden"
+
+#: templates/base.html:39
+msgid "about"
+msgstr "Über"
+
+#: templates/base.html:40
+msgid "source code"
+msgstr "Quelltext"
+
+#: templates/base.html:43
+msgid "available in:"
+msgstr "verfügbar in:"
+
+#: templates/base.html:44
+msgid "german"
+msgstr "deutsch"
+
+#: templates/base.html:45
+msgid "english"
+msgstr "englisch"
+
+#: templates/book.html:4 templates/editbook.html:4
+msgid "Book details"
+msgstr "Buchdetails"
+
+#: templates/book.html:32
+msgid "comment"
+msgstr "Kommentar"
+
+#: templates/book.html:34 templates/book.html.py:39 templates/books.html:4
+msgid "by"
+msgstr "von"
+
+#: templates/book.html:44
+msgid "No comments yet"
+msgstr "Keine Kommentare vorhanden"
+
+#: templates/book.html:49
+msgid "No reviews yet"
+msgstr "Keine Rezensionen vorhanden"
+
+#: templates/books.html:4
+msgid "All Books"
+msgstr "Alle Bücher"
+
+#: templates/books.html:11
+msgid "No Books in record. Maybe you want to add one?"
+msgstr "Keine Bücher im Verzeichnis. Vielleicht magst du eins hinzufügen?"
+
+#: templates/comment.html:4
+msgid "Write a comment"
+msgstr "Schreibe einen Kommentar"
+
+#: templates/publishers.html:4
+msgid "Publishers"
+msgstr "Verleger"
+
+#: templates/publishers.html:11
+msgid "No Publishers in record. Maybe you want to add one?"
+msgstr "Keine Verlage im Verzeichnis."
+
+#: templates/review.html:4
+msgid "Write a review"
+msgstr "Schreibe eine Rezension"
+
+#: templates/setlang.html:4
+msgid "Change Language"
+msgstr "Sprache wechseln"
+
+#: templates/setlang.html:7
+msgid "This will change your language to"
+msgstr "Sprache ändern zu: "
+
+#: templates/setlang.html:7
+msgid "are you sure?"
+msgstr "bist Du sicher?"
+
+#: templates/setlang.html:12
+msgid "yes"
+msgstr "ja"
+
+#: templates/subject.html:4
+msgid "Subject"
+msgstr "Thema"
+
+#: templates/subjects.html:11
+msgid "No Subjects in record. Maybe you want to add one?"
+msgstr "keine Themen im Verzeichnis"
+
+#: templates/accounts/own_profile.html:4
+msgid "Your profile, master"
+msgstr "Dein Profil, mein Herr"
+
+#: templates/accounts/own_profile.html:9
+msgid "Hello,"
+msgstr "Hallo,"
+
+#: templates/accounts/own_profile.html:9
+msgid "nice to see you!"
+msgstr "schön dich zu sehen!"
+
+#: templates/accounts/own_profile.html:11
+msgid "Want to update your profile?"
+msgstr "Willst du dein Profil verändern?"
+
+#: templates/accounts/profile.html:4
+msgid "Profile of"
+msgstr "Profil von"
+
+#: templates/registration/loggedin.html:4
+msgid "Logged in"
+msgstr "Angemeldet"
+
+#: templates/registration/loggedin.html:9
+msgid "Thank you, you are now logged in"
+msgstr "Danke dir, du bist jetzt angemeldet"
+
+#: templates/registration/loggedout.html:4
+msgid "Logged out"
+msgstr "Abgemeldet"
+
+#: templates/registration/loggedout.html:9
+msgid "Thank you, you are now logged out"
+msgstr "Danke dir, du bist nun abgemeldet"
+
+#: templates/registration/loggedout.html:10
+msgid "Have a nice day, see you soon!"
+msgstr "Hab einen schönen Tag, und komm bald wieder!"
+
+#: templates/registration/register.html:3
+msgid "Create an account"
+msgstr "Registriere dich"
+
+#: templates/registration/register.html:9
+msgid "Create the account"
+msgstr "Registriere dich"
