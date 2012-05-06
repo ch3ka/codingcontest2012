@@ -1,11 +1,11 @@
 from django.shortcuts import render_to_response
 from django.template import RequestContext
-from book.models import Book, BookForm, Author, AuthorForm, Subject, SubjectForm, Publisher, PublisherForm
+from book.models import Book, BookForm, ISBNBookForm, Author, AuthorForm, Subject, SubjectForm, Publisher, PublisherForm
 from accounts.models import Review, Comment
 from accounts.forms import ReviewForm, CommentForm
 from api import internal as internalapi
 from django.contrib.auth.decorators import login_required
-from django.http import HttpResponseRedirect 
+from django.http import HttpResponse, HttpResponseRedirect 
 
 def index(request):
     return render_to_response('index.html', {},
@@ -89,16 +89,28 @@ def comment(request, reviewid):
     )
 
 @login_required
+def addbookbyisbn(request):
+    from tools import isbntools
+    isbnform = ISBNBookForm(request.POST)
+    if isbnform.is_valid():
+        try:
+            internalapi.import_by_isbn(isbnform.cleaned_data['isbn'])
+        except Exception:
+            return HttpResponse("something went wrong. could not import data for ISBN %s" % isbnform.cleaned_data['isbn'])
+        else:
+            return HttpResponseRedirect("/book/edit/"+isbntools.strip(isbnform.cleaned_data['isbn']))
+
+@login_required
 def addbook(request):
+    from tools import isbntools
     if request.method == "POST":
         form = BookForm(request.POST, request.FILES)
         if form.is_valid():
-            form.save()
-            return HttpResponseRedirect('/book/'+str(form.cleaned_data['isbn']))
+            return HttpResponseRedirect('/book/'+isbntools.strip(str(form.cleaned_data['isbn'])))
     else:
         form = BookForm()
     return render_to_response('addbook.html',
-        {'form': form,},
+        {'form': form, 'isbnform': ISBNBookForm(request.POST)},
         context_instance=RequestContext(request)
     )
 

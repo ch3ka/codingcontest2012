@@ -11,7 +11,10 @@
 <body>
   <div class="container">
         <div class="title">
-            <h1><a href="/">BookZ!</a></h1>
+            <h1>
+
+      {% if user.is_authenticated %} <span style="float:right"><a href="/book/new/">[+]book</a></span> {% endif %}
+            <a href="/">BookZ!</a></h1>
         </div>
     <div class="main">
       <div id="post" class="content">
@@ -23,7 +26,7 @@
             <a href="/login">{% trans "Login" %}</a>
         {% endif %}
         </span></h2>
-      <h1> {% block title %} TITLE {% endblock %}</h1>
+<h1> {% block title %} TITLE {% endblock %}</h1>
         {% block content %}
             {% load webdesign %}
             {% lorem 13 p %}

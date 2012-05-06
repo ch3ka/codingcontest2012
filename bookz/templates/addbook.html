@@ -4,6 +4,12 @@
     {% trans "Add a book" %}
 {% endblock %}
 {% block content %}
+    <form action="/book/newbyisbn/" method="post">
+    {% csrf_token %}
+    {{ isbnform.as_p }}
+    <input type="submit" />
+    </form>
+    <p>{% trans "if that fails (or you do not have any api key for any importer), do it manually:" %}</p>
     <form action="" method="post">
     {% csrf_token %}
     {{ form.as_p }}

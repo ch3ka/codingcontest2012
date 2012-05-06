@@ -127,3 +127,6 @@ class BookForm(ModelForm):
             self.cleaned_data['publisher'] = publisher
 
         return super(BookForm, self).clean()
+
+class ISBNBookForm(forms.Form):
+    isbn = forms.CharField(label="You can just try to fetch all information by entering the ISBN-13")
