@@ -89,6 +89,20 @@ def comment(request, reviewid):
     )
 
 @login_required
+def addbook(request):
+    if request.method == "POST":
+        form = BookForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            return HttpResponseRedirect('/book/'+str(form.cleaned_data['isbn']))
+    else:
+        form = BookForm()
+    return render_to_response('addbook.html',
+        {'form': form,},
+        context_instance=RequestContext(request)
+    )
+
+@login_required
 def reviewbook(request, isbn):
     if request.method == "POST":
         review = Review(user=request.user, book=Book.objects.get(isbn=isbn))

@@ -1,6 +1,8 @@
 from django.db import models
 from django.utils.translation import ugettext_lazy as _
 from django.forms import ModelForm
+from django import forms
+from django.template.defaultfilters import slugify
 
 class Author(models.Model):
     """ a book has at least one author"""
@@ -78,5 +80,50 @@ class Book(models.Model):
         return "%s [%s]" % (self.title, self.isbn)
 
 class BookForm(ModelForm):
+    def __init__(self,*args, **kwargs):
+        super(BookForm, self).__init__(*args, **kwargs)
+        for monkey in ('publisher', 'authors', 'subjects'):
+            self.fields[monkey].required = False  # monkeypatch requirements, because we may override them below
+    subject_alt = forms.CharField(label=_("You can specify subjects which are not in list, one per line"), widget=forms.Textarea, required=False)
+    authors_alt = forms.CharField(label=_("You can specify authors which are not in list, one per line"), widget=forms.Textarea, required=False)
+    publisher_alt = forms.CharField(label=_("You can specify a publicher which is not in list"), required=False)
     class Meta:
         model = Book
+    def clean(self):
+        subjects = []
+        for subject in self.cleaned_data.get('subject_alt',[]).splitlines():
+            subjectdata = (slugify(subject), subject)
+            if not subjectdata[0]:
+                continue
+            try:
+                subject = Subject.objects.get(subject_id=subjectdata[0])
+            except Subject.DoesNotExist:
+                subject = Subject(subject_id=subjectdata[0], name=subjectdata[1])
+                subject.save()
+            subjects.append(subject)
+        self.cleaned_data['subjects'] = list(self.cleaned_data.get('subjects',[])) + subjects
+        print self.cleaned_data['subjects']
+        
+        authors = []
+        for author in self.cleaned_data.get('authors_alt',[]).splitlines():
+            authordata = (slugify(author), author)
+            if not authordata[0]:
+                continue
+            try:
+                author = Author.objects.get(author_id=authordata[0])
+            except Author.DoesNotExist:
+                author = Author(author_id=authordata[0], name=authordata[1])
+                author.save()
+            authors.append(author)
+        self.cleaned_data['authors'] = list(self.cleaned_data.get('authors',[])) + authors
+        print self.cleaned_data['authors']
+        publisher = self.cleaned_data.get('publisher_alt',[]).strip()
+        if publisher:
+            try:
+                publisher = Publisher.objects.get(publisher_id=slugify(publisher))
+            except Publisher.DoesNotExist:
+                publisher = Publisher(publisher_id=slugify(publisher), name=publisher)
+                publisher.save()
+            self.cleaned_data['publisher'] = publisher
+
+        return super(BookForm, self).clean()
