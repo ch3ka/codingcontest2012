@@ -17,3 +17,16 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 see INSTALL for installation notes.
 see LICENSE for the License.
+
+USAGE:
+    use the superuser you created during the install to log into localhost:8000/admin - explore
+    some features are only accessible (and visible) when you are logged in.
+    logged in users can:
+        - add books (with autors, subjects, and publishers. those will automatically be added on first encounter.)
+        - edit books, autors, subjects, publishers, and their own profile
+        - write reviews on books
+        - write comments on reviews
+    superusers can:
+        - do everything, using the admin.
+    we also got a stub of an API, see api/views.py.
+        You'll need an API key, create one in the admin interface.
