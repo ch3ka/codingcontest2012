@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% block title%}
+    {% trans "Author"%}
+{% endblock %}
+{% block content %}
+    <p>ID: {{ author.author_id }}</p>
+    <p>Name: {{ author.name }}</p>
+{% endblock %}

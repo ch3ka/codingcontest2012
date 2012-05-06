@@ -1,6 +1,7 @@
 from django import forms
 from accounts.models import User
 from django.contrib.auth.forms import UserCreationForm
+from django.forms import ModelForm
  
 class UserCreationForm(UserCreationForm):
     email = forms.EmailField(required=True)
@@ -17,3 +18,8 @@ class UserCreationForm(UserCreationForm):
         if commit:
             user.save()
         return user
+
+class EditUserForm(ModelForm):
+    class Meta:
+        model = User
+        fields = ("website", "bio", "avatar")

@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% block title%}
+    {% trans "Publisher"%}
+{% endblock %}
+{% block content %}
+    <p>ID: {{ publisher.publisher_id }}</p>
+    <p>Name: {{ publisher.name }}</p>
+{% endblock %}

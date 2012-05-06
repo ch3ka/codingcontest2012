@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% block title%}
+    {% trans "Subject"%}
+{% endblock %}
+{% block content %}
+    <p>ID: {{ subject.subject_id }}</p>
+    <p>Name: {{ subject.name }}</p>
+{% endblock %}

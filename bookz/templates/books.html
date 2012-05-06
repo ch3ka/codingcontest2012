@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% block title%}
+    {% trans "All Books"%} {% if by and key %} {% trans "by" %} {{by}} {{key}} {% endif %}
+{% endblock %}
+{% block content %}
+    <ul>
+    {% for book in books %}
+        <li><a href="/book/{{book.isbn}}">{{ book }}</a></li>
+    {% empty %}
+        {% trans "No Books in record. Maybe you want to add one?" %}
+    {% endfor %}
+    </ul>
+{% endblock %}

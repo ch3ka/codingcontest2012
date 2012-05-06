@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% block title%}
+    {% trans "Subjects"%}
+{% endblock %}
+{% block content %}
+    <ul>
+    {% for subject in subjects %}
+        <li><a href="/subject/{{subject.subject_id}}">{{ subject }}</a> &bullet; <a href="/books/subject/{{subject.subject_id}}">display books</a></li>
+    {% empty %}
+        {% trans "No Subjects in record. Maybe you want to add one?" %}
+    {% endfor %}
+    </ul>
+{% endblock %}
