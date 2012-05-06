@@ -8,8 +8,8 @@
 <img style="float:right;" src="/{{book.cover}}" width="120" height="120"/>
 <table>
 <tr><td>ISBN-13</td><td>{{book.isbn}}</td></tr>
-<tr><td>authors</td><td>{% for author in book.authors.all %}{{author.name}}{% endfor %}</td></tr>
-<tr><td>subjects</td><td>{% for subject in book.subjects.all %} subject.name {% endfor %}</td></tr>
+<tr><td>authors</td><td>{% for author in book.authors.all %}{{author.name}}{% if not forloop.last%}, {% endif %}{% endfor %}</td></tr>
+<tr><td>subjects</td><td>{% for subject in book.subjects.all %}{{subject.name}}{% if not forloop.last %}, {% endif %} {% endfor %}</td></tr>
 <tr><td>publisher</td><td>{{book.publisher.name}}</td></tr>
 <tr><td>dewy decimal classification</td><td>{{book.ddc}}</td></tr>
 <tr><td>language</td><td>{{book.language}}</td></tr>
