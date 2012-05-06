@@ -7,8 +7,8 @@ from django.contrib.auth.views import login, logout
 from django.contrib import admin
 admin.autodiscover()
 from django.contrib.auth.models import User, Group
-#admin.site.unregister(User)
-#admin.site.unregister(Group)
+admin.site.unregister(User)
+admin.site.unregister(Group)
 
 urlpatterns = patterns('',
     # url(r'^$', 'bookz.views.home', name='home'),
