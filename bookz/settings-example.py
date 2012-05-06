@@ -35,7 +35,12 @@ TIME_ZONE = 'Europe/Berlin'
 # http://www.i18nguy.com/unicode/language-identifiers.html
 
 # LANGUAGE_CODE = 'en-us'
-LANGUAGE_CODE = 'de-de'
+LANGUAGE_CODE = 'en-us'
+
+LANGUAGES = (
+    ('de', 'Deutsch'),
+    ('en', 'English'),
+)
 
 SITE_ID = 1
 
@@ -73,6 +78,7 @@ ADMIN_MEDIA_PREFIX = '/static/admin/'
 
 # Additional locations of static files
 STATICFILES_DIRS = (
+    'static',
     # Put strings here, like "/home/html/static" or "C:/www/django/static".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
@@ -110,6 +116,7 @@ TEMPLATE_DIRS = (
     # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
+    'templates',
 )
 
 INSTALLED_APPS = (
@@ -119,10 +126,12 @@ INSTALLED_APPS = (
     'django.contrib.sites',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    # Uncomment the next line to enable the admin:
-    # 'django.contrib.admin',
-    # Uncomment the next line to enable admin documentation:
-    # 'django.contrib.admindocs',
+    'django.contrib.admin',
+    'django.contrib.admindocs',
+    'django.contrib.webdesign',
+    'book',
+    'api',
+    'accounts',
 )
 
 # A sample logging configuration. The only tangible logging
@@ -147,3 +156,14 @@ LOGGING = {
         },
     }
 }
+
+AUTHENTICATION_BACKENDS = (
+    'accounts.auth_backend.CustomUserModelBackend',
+    )
+
+
+#### API KEY FOR isbndb.com. This one is valid and you can use it 
+#### for testing purposes, but it will expire soon.
+#### get one yourself at isbndb.com
+
+ISBNDB_APIKEY = "TQAX325I"
