@@ -115,3 +115,11 @@ h3{
     margin-right:auto;
     width:860px
 }
+
+form {
+    padding: 10px;
+}
+
+form input {
+    margin: 20px;
+}

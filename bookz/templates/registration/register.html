@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% block title %}{% trans "Create an account" %}{% endblock %}
+
+{% block content %}
+  <form action="" method="post">
+      {% csrf_token %}
+      {{ form.as_table }}
+      <input type="submit" value="{% trans "Create the account" %}">
+  </form>
+{% endblock %}

@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% block title %}
+{% trans "Your profile, master" %}
+{% endblock %}
+
+{% block content %}
+
+<h3> {% trans "Hello," %} {{user}}, {% trans "nice to see you!" %} </h3>
+
+{% endblock %}
+
