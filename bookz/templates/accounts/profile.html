@@ -10,5 +10,19 @@
 <p> {{user}} wrote {{reviews.count}} reviews and {{comments.count}} comments.</p>
 <p>Website: <a href="{{user.website}}" /> {{user.website}} </a></p>
 <p>Bio: {{user.bio}}</p>
+{{user}} {% trans "owns"%}:
+    {% for book in user.owns.all %}
+        <a href="/book/{{ book.isbn }}">{{book}}</a>{% if not forloop.last %}, {% endif %}
+{% empty %}
+    {% trans "None" %}
+{% endfor %}
+<br />
+<br />
+{{user}} {% trans "read"%}:
+    {% for book in user.read.all %}
+        <a href="/book/{{ book.isbn }}">{{book}}</a>{% if not forloop.last %}, {% endif %}
+{% empty %}
+    {% trans "None yet" %}
+{% endfor %}
 {% endblock %}
 
