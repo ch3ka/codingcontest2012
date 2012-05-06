@@ -1,0 +1,47 @@
+{% load i18n %}
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+   <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+   <title>BookZ! {% block "headtitle" %}{% endblock %}</title>
+   <link rel="stylesheet" href="/static/css/screen.css" type="text/css" media="screen, projection" />
+</head>
+<body>
+  <div class="container">
+        <div class="title">
+            <h1><a href="/">BookZ!</a></h1>
+        </div>
+    <div class="main">
+      <div id="post" class="content">
+      <h2> <a href="/">foo</a> &bullet; <a href="/">bar</a> &bullet; <a href="/">foo</a> &bullet; <a href="/">bar</a></h2>
+      <h1> {% block "title" %} TITLE {% endblock %}</h1>
+        {% block "content" %}
+            {% load webdesign %}
+            {% lorem 13 p %}
+        {% endblock %}
+      </div>
+    </div>
+
+    <div class="footer">
+      <div class="footerlinks">
+        <a href="/about">{% trans "about" %}</a>
+        <a href="">{% trans "source code" %}</a>
+      </div>
+      <div class="languages">
+        <span>{% trans "available in:" %}</span>
+        <a href="/setlang/de">{% trans "german" %}</a> |
+        <a href="/setlang/en">{% trans "english" %}</a>
+      </div>
+      <div>
+        <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/us/"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-sa/3.0/us/88x31.png" /></a>
+      </div>
+      <div id="counter">
+      </div>
+   </div>
+
+  </div>
+</body>
+</html>
+

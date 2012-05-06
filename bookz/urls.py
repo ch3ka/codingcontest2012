@@ -11,7 +11,8 @@ admin.site.unregister(Group)
 urlpatterns = patterns('',
     # url(r'^$', 'bookz.views.home', name='home'),
     # url(r'^bookz/', include('bookz.foo.urls')),
-
+    url(r'^$', 'book.views.index'),
+    url(r'^about/$', 'book.views.about'),
     url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
 
     url(r'^admin/', include(admin.site.urls)),

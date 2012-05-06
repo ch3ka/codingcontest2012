@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% block "title"%}
+    {% trans "About"%}
+{% endblock %}
+{% block "content" %}
+    {% blocktrans %}
+        <p>This is a result of <a href="http://netresearch.de/>">Netresearch's</a> <a href="http://www.coding-contest.de/">Coding Contest</a> 2012.</p>
+        <p>I built this as a bookkeeping software for books (pun intended) with some social flavour, plus a pretty extensible API.</p>
+        <p>It can import books by their ISBN, or manually, and you can write reviews for them, rate them and those, mark books as owned and read, etc</p>
+    {% endblocktrans %}
+{% endblock %}
